@@ -48,10 +48,10 @@
          <input class="input-group-text" placeholder="Usuario" required type="text" id="user" style="display: inline-flex;"> <br> <br>
          <input class="input-group-text" placeholder="Contraseña" required type="password"  id="password" style="display: inline-flex;"> <br> <br>
         <button class="btn btn-warning btn   btn-primary btn-lg" onclick="conectar()" >Conectar</button>
+        <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div>
     </div>
   </div>
 
-  <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div>
   <script>
     function onSignIn(googleUser) {
       // Useful data for your client-side scripts:
