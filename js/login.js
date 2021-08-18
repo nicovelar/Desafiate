@@ -21,9 +21,9 @@ function conectar() {
         
         usuario.estado = "conectado";
 
-        sessionStorage.setItem("usuario",JSON.stringify(usuario));
+        localStorage.setItem("usuario",JSON.stringify(usuario));
 
-        location.href = "principal.html";
+        location.href = "./principal.html";
     }
 }
 
@@ -31,7 +31,11 @@ function verificar() {
     if (conectar.usuario.estado === "conectado") {
 
     }else {
-        location.href = "index.html";
+        location.href = "./index.html";
     }
 }
 
+function desconectar (){
+    localStorage.clear;
+    location.href = "./index.html";
+}
