@@ -38,6 +38,10 @@
       margin: auto;
     }
 
+    .g-signin2 {
+      margin-left: 44%;
+    }
+
   </style>
 </head>
 
@@ -47,7 +51,7 @@
       <img src="img/login.png">
          <input class="input-group-text" placeholder="Usuario" required type="text" id="user" style="display: inline-flex;"> <br> <br>
          <input class="input-group-text" placeholder="Contraseña" required type="password"  id="password" style="display: inline-flex;"> <br> <br>
-        <button class="btn btn-warning btn   btn-primary btn-lg" onclick="conectar()" >Conectar</button>
+        <button class="btn btn-warning btn   btn-primary btn-lg" onclick="conectar()" >Conectar</button> <br> <br>
         <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div>
     </div>
   </div>

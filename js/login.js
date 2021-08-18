@@ -13,7 +13,7 @@ function conectar() {
     let usuario = {};
     if (dato.value.trim() === "") {
 
-        dato.classList.add("isInvalid");
+        alert("Faltan datos");
 
     }else{
 
