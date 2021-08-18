@@ -38,4 +38,5 @@ function verificar() {
 function desconectar (){
     localStorage.clear();
     location.href = "./index.html";
+    signOut();
 }
