@@ -27,14 +27,6 @@ function conectar() {
     }
 }
 
-function verificar() {
-    if (conectar.usuario.estado === "conectado") {
-
-    }else {
-        location.href = "./index.html";
-    }
-}
-
 function desconectar (){
     localStorage.clear();
     signOut();
