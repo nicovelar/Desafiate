@@ -36,6 +36,7 @@ function verificar() {
 }
 
 function desconectar (){
-    localStorage.clear;
+    //localStorage.clear;
+    sessionStorage.clear;
     location.href = "./index.html";
 }
