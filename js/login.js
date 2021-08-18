@@ -3,8 +3,6 @@
 //elementos HTML presentes.
 document.addEventListener("DOMContentLoaded", function(e){
 
-
-
 });
 
 function conectar() {
@@ -18,7 +16,6 @@ function conectar() {
     }else{
 
         usuario.nombre = dato.value;
-        
         usuario.estado = "conectado";
 
         localStorage.setItem("usuario",JSON.stringify(usuario));
@@ -27,8 +24,15 @@ function conectar() {
     }
 }
 
+function verificar() {
+    if (conectar.usuario.estado === "conectado") {
+
+    }else {
+        location.href = "./index.html";
+    }
+}
+
 function desconectar (){
     localStorage.clear();
-    signOut();
     location.href = "./index.html";
 }
