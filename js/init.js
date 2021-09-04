@@ -40,8 +40,33 @@ var getJSONData = function(url){
     });
 }
 
+function signOut() {
+  var auth2 = gapi.auth2.getAuthInstance();
+  auth2.signOut().then(function () {
+  });
+  desconectar();
+}
+
+function onLoad() {
+  gapi.load('auth2', function() {
+    gapi.auth2.init();
+  });
+}
+
+function mostrarUsuario() {
+  var usuario = JSON.parse(localStorage.getItem("usuario"));
+  document.getElementById("user").innerHTML = `<img style="position:relative; height:45px; class="py-2 d-none d-md-inline-block" src="${usuario.imagen}">
+  <a href="my-profile.html" role="button" class="py-2 d-none d-md-inline-block btn btn-outline-warning">${usuario.nombre} <a>
+ <button class="py-2 d-none d-md-inline-block btn btn-outline-danger" onclick="signOut();">Desconectar</button>`
+ 
+if (usuario.imagen === undefined) {
+  document.getElementById("user").innerHTML = `<a href="my-profile.html" role="button" class= "py-2 d-none d-md-inline-block btn btn-outline-warning">${usuario.nombre} </a>
+  <button class="py-2 d-none d-md-inline-block btn btn-danger" onclick="signOut();">Desconectar</button>`
+}
+}
+
 //Función que se ejecuta una vez que se haya lanzado el evento de
 //que el documento se encuentra cargado, es decir, se encuentran todos los
 //elementos HTML presentes.
-document.addEventListener("DOMContentLoaded", function(e){
+document.addEventListener("DOMContentLoaded", function(e){ mostrarUsuario()
 });
