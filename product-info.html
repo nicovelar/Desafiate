@@ -13,6 +13,13 @@
   <link href="css/font-awesome.min.css" rel="stylesheet">
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/styles.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Fjalla+One" rel="stylesheet">
+
+
+
 </head>
 
 <body>
@@ -27,22 +34,38 @@
     </div>
   </nav>
   <div class="container p-5">
-    <div class="alert alert-danger" role="alert" style="position: relative; width:auto; top: 0;">
-      <h4 class="alert-heading">¡A trabajar! :)</h4>
-      <p>Esta sección corresponde a: Entrega 3 (Fecha de entrega: 19/09/2021) y Entrega 4 (Fecha de entrega: 03/10/2021).</p>
-      <hr>
-      <p class="mb-0">Para saber qué debes hacer, fijate en la actividad en CREA correspondiente a esta entrega.</p>
-    </div>
+    
   </div>
   <footer class="text-muted">
-    <div class="container">
-      <p class="float-right">
-        <a href="#">Volver arriba</a>
-      </p>
-      <p>Este sitio forma parte de Desarrollo Web - JAP - 2020</p>
-      <p>Clickea <a target="_blank" href="Letra.pdf">aquí</a> para descargar la letra del obligatorio.</p>
+    <div class="container" id="product-info">
+    </div> <br> <br>
+    <div class="container" id="product-info-comment">
     </div>
-  </footer>
+ 
+
+<div id="puntuacion">
+  <textarea id="comentario" style="margin-left: 30%; width:40%;" rows="5"></textarea> <br>
+            <div class="stars"  style="margin-left: 17%; width:40%;">
+                  <input class="star star-5" id="star-5" type="radio" name="star" value="5" onclick="document.getElementById('valor').value = value" />
+                  <label class="star star-5" for="star-5"></label> 
+                  <input class="star star-4" id="star-4" type="radio" name="star" value="4" onclick="document.getElementById('valor').value = value" /> 
+                  <label class="star star-4" for="star-4"></label>
+                  <input class="star star-3" id="star-3" type="radio" name="star" value="3" onclick="document.getElementById('valor').value = value" /> 
+                  <label class="star star-3" for="star-3"></label>
+                  <input class="star star-2" id="star-2" type="radio" name="star" value="2" onclick="document.getElementById('valor').value = value" /> 
+                  <label class="star star-2" for="star-2"></label>
+                  <input class="star star-1" id="star-1" type="radio" name="star" value="1" onclick="document.getElementById('valor').value = value" /> 
+                  <label class="star star-1" for="star-1"></label> 
+                  <span id="valor"></span>
+                  <button onclick="publicar()" class="btn-slice" style="margin-left:62%; width:40%;">
+                    <div><span>Publicar</span></div>
+                  </button>
+            </div>
+</div>
+
+</footer>
+
+
   <div id="spinner-wrapper">
     <div class="lds-ring">
       <div></div>
@@ -57,6 +80,8 @@
   <script src= "js/login.js"></script>
   <script src="js/product-info.js"></script>
   <script src="https://apis.google.com/js/platform.js?onload=onLoad" async defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>

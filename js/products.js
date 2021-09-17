@@ -14,8 +14,9 @@ function showProductsList(array){
     for(let i = 0; i < array.length; i++){
         let product = array[i];
 
-        htmlContentToAppend += `
-        <div class="list-group-item list-group-item-action">
+        htmlContentToAppend += ` 
+        <a href = "product-info.html" class="list-group-item list-group-item-action">
+      
             <div class="row">
                 <div class="col-3">
                     <img src="` + product.imgSrc + `" alt="` + product.description + `" class="img-thumbnail">
@@ -29,7 +30,7 @@ function showProductsList(array){
                     <smaller h4 class="mb-1">`+ product.description +`</h4>
                 </div>
             </div>
-        </div>
+        </a>
         `
 
     }
