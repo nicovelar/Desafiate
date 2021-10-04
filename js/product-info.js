@@ -5,28 +5,52 @@ document.addEventListener("DOMContentLoaded", function(e){
 
 });
 
+var info = {};
+var autos = [];
 var productsArray = [];
 var productsObject = {};
 
 function showProductsInfoList(objeto){
     showSpinner();
 
-    let htmlContentToAppend = `
-        <div class="list-group-item list-group-item-action">
-            <div class="row">
-                <div class="col-3">
-                    <img src="` + objeto.images[1] + `" alt="` + objeto.description + `" class="img-thumbnail">
-                </div>
-                <div class="col">
-                    <div class="d-flex w-100 justify-content-between">
-                        <h4 class="mb-1">`+ objeto.name +`</h4>
-                        <small class="text-muted">` + objeto.soldCount + ` artículos</small>
-                        <small class="text-muted"> $` + objeto.cost + `</small>
-                    </div>
-                    <smaller h4 class="mb-1">`+ objeto.description +`</h4>
-                </div>
-            </div>
-        </div>
+    let htmlContentToAppend = ` 
+
+        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+  <ol class="carousel-indicators">
+    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="4"></li>
+  </ol>
+  <div class="carousel-inner">
+    <div class="carousel-item active" data-interval="2000">
+      <img src="` + objeto.images[1] + `" class="d-block w-100" >
+    </div>
+    <div class="carousel-item" data-interval="2000">
+      <img src="` + objeto.images[0] + `"class="d-block w-100" >
+    </div>
+    <div class="carousel-item" data-interval="2000">
+      <img src="` + objeto.images[2] + `"class="d-block w-100"  >
+    </div>
+    <div class="carousel-item" data-interval="2000">
+      <img src="` + objeto.images[3] + `"class="d-block w-100"  >
+    </div>
+    <div class="carousel-item" data-interval="2000">
+      <img src="` + objeto.images[4] + `"class="d-block w-100" >
+    </div>
+  </div>
+
+  
+  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
         `
         document.getElementById("product-info").innerHTML = htmlContentToAppend;
     hideSpinner();
@@ -52,6 +76,40 @@ function showProductsInfoList(objeto){
         document.getElementById("product-info-comment").innerHTML = htmlContentToAppend;
         hideSpinner();
     }
+
+    function showProductsRelated(array){
+        showSpinner();
+        let htmlContentToAppend = ` <h3>Productos Relacionados </h3> `;
+        let nuevoAuto = []
+
+         for(let i = 0; i < array.length; i++){
+         const indice = array[i];
+        nuevoAuto = autos[indice];
+
+            htmlContentToAppend += ` <a href = "product-info.html" class="list-group-item list-group-item-action">
+      
+            <div class="row">
+                <div class="col-3 zoom" >
+                    <img src="` + nuevoAuto.imgSrc + `" alt="` + nuevoAuto.description + `" class="img-thumbnail">
+                </div>
+                <div class="col">
+                    <div class="d-flex w-100 justify-content-between">
+                        <h4 class="mb-1">`+ nuevoAuto.name +`</h4>
+                        <small class="text-muted">` + nuevoAuto.soldCount + ` artículos</small>
+                        <small class="text-muted"> $` + nuevoAuto.cost + `</small>
+                    </div>
+                    <smaller h4 class="mb-1">`+ nuevoAuto.description +`</h4>
+                </div>
+            </div>
+        </a>
+        `
+    }
+
+
+        document.getElementById("product-related").innerHTML = htmlContentToAppend;
+        hideSpinner();
+    }
+
 
 
 function califico(estrella) {
@@ -94,14 +152,26 @@ function publicar() {
             if (resultObj.status === "ok")
             {
                 productsArray = resultObj.data;
-                showProductsInfoCommentList(productsArray);
+                showProductsInfoCommentList(productsArray);     
+            }
+        });
+
+        getJSONData(PRODUCTS_URL).then(function(resultObj){
+            if (resultObj.status === "ok")
+            {
+                autos = resultObj.data;
             }
         });
         
         getJSONData(PRODUCT_INFO_URL).then(function(resultObj){
             if (resultObj.status === "ok")
             {
-                showProductsInfoList(resultObj.data);
+                info = resultObj.data
+                showProductsInfoList(info);
+                showProductsRelated(info.relatedProducts);
             }
         });
+
+       
+
     });

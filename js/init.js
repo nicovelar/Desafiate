@@ -55,13 +55,32 @@ function onLoad() {
 
 function mostrarUsuario() {
   var usuario = JSON.parse(localStorage.getItem("usuario"));
-  document.getElementById("user").innerHTML = `<img style="position:relative; height:45px; class="py-2 d-none d-md-inline-block" src="${usuario.imagen}">
-  <a href="my-profile.html" role="button" class="py-2 d-none d-md-inline-block btn btn-outline-warning">${usuario.nombre} <a>
- <button class="py-2 d-none d-md-inline-block btn btn-outline-danger" onclick="signOut();">Desconectar</button>`
+  document.getElementById("user").innerHTML = `
+
+  <div class="dropdown">
+  <img style="position:relative; height:45px; class="py-2 d-none d-md-inline-block" src="${usuario.imagen}">
+  <button class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown">${usuario.nombre}
+  <span class="caret"></span></button>
+  <ul class="dropdown-menu">
+    <li><a style="margin-left: 25px;" href="my-profile.html">Mi perfil</a></li>
+    <li><button class="py-2 d-none d-md-inline-block btn btn-outline-danger" onclick="signOut();">Desconectar</button>
+  </ul>
+</div>
+
+`
  
 if (usuario.imagen === undefined) {
-  document.getElementById("user").innerHTML = `<a href="my-profile.html" role="button" class= "py-2 d-none d-md-inline-block btn btn-outline-warning">${usuario.nombre} </a>
-  <button class="py-2 d-none d-md-inline-block btn btn-danger" onclick="signOut();">Desconectar</button>`
+  document.getElementById("user").innerHTML = `
+  
+<div class="dropdown">
+  <button class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown">${usuario.nombre}
+  <span class="caret"></span></button>
+  <ul class="dropdown-menu">
+    <li><a style="margin-left: 25px;" href="my-profile.html">Mi perfil</a></li>
+    <li><button class="py-2 d-none d-md-inline-block btn btn-outline-danger" onclick="signOut();">Desconectar</button>
+  </ul>
+</div>
+`
 }
 }
 
