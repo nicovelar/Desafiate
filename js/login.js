@@ -5,11 +5,14 @@ document.addEventListener("DOMContentLoaded", function(e){
 
 });
 
+
 function conectar() {
 
     let dato = document.getElementById("user");
+    let contraseña = document.getElementById("password");
     let usuario = {};
-    if (dato.value.trim() === "") {
+    let contraseñaCodificada = md5(contraseña.value);
+    if (dato.value.trim() === "" || contraseña.value.trim() === "") {
 
         alert("Faltan datos");
 
@@ -17,6 +20,7 @@ function conectar() {
 
         usuario.nombre = dato.value;
         usuario.estado = "conectado";
+        usuario.contraseña = contraseñaCodificada;
 
         localStorage.setItem("usuario",JSON.stringify(usuario));
 
