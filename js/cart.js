@@ -31,7 +31,7 @@ function showProductsList(array){
         let precio = product.unitCost;
         let PrecioUruguayo = pasarAPesosUruguayos(moneda,precio)
         htmlContentToAppend += ` 
-     <div class="list-group-item-action">
+     <div>
             <div class="row" >
                 <div class="col-3">
                     <img src="`+ product.src+`" class="img-thumbnail">
