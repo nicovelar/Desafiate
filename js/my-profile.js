@@ -25,7 +25,7 @@ function desplegarInfo(){
     </div>
     <div class="form-group col-3">
     <label for="exampleInputEmail1">Email</label>
-    <input type="email" value="" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Ingrese su email">
+    <input type="email" value="" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Ingrese su email:">
     </div>
     <div class="form-group col-3">
     <label >Teléfono: </label> <br>

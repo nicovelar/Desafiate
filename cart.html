@@ -57,9 +57,74 @@
     </div>
     <h3>Subtotal</h3>
    <div class="container p-5" id="subtotal">
-
-   </div>
+    </div>
+   <button class="btn-lg comprar"  onclick="metodosDePago(),totalAPagar()" data-toggle="modal" data-target="#exampleModal" >Comprar</button>
   </div>
+
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title" id="exampleModalLabel">Proceso de Compra</h4>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form onsubmit="compraRealizada()">
+            <h5>Seleccione Destino del Envío</h5> <br>
+            <h6>Dirección:</h6>
+            <label for="calle">Calle:</label>
+           <input name="calle" required> <br>
+           <label for="numero">Número:</label>
+           <input type="number" name="numero" required> <br>
+           <label for="pais">País:</label>
+           <input name="pais" required> <br> <br>
+           <h5>Seleccione Tipo de Envío </h3> <br>
+            <div class="form-check">
+              <input onclick="totalAPagar()" class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+              <label class="form-check-label" for="exampleRadios1">
+                Premium (2-5 días) - Costo del 15% sobre el subtotal.
+              </label>
+            </div>
+            <div class="form-check">
+              <input  onclick="totalAPagar()" class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+              <label class="form-check-label" for="exampleRadios2">
+                Express (5-8 días) - Costo del 7% sobre el subtotal.
+              </label>
+            </div>
+            <div class="form-check">
+              <input onclick="totalAPagar()" class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios3" value="option3">
+              <label class="form-check-label" for="exampleRadios3">
+                Standard (12 a 15 días) - Costo del 5% sobre el subtotal
+              </label>
+            </div> <br>
+            <h5>Total a Pagar </h3> <br>
+              <div id="totalAPagar">
+
+              </div> <br>
+            <h5>Seleccione Método de Pago </h3>
+              <div class="dropdown">
+                <select id="metodoDePago" onchange="metodosDePago()" class="form-select" aria-label="Default select example">
+                  <option  selected>Tarjeta de Crédito</option>
+                  <option value="1">Transferencia Bancaria</option>
+                </select>
+              </div>
+              <div id="formaDePago">
+              </div>
+              <button type="button" class="nocomprar" data-dismiss="modal">Cancelar</button>
+              <button type="submit" value="submit"  class="comprar">Comprar</button>
+          </form>
+          
+
+        </div>
+        <div class="modal-footer">
+          
+        </div>
+      </div>
+    </div>
+  </div>
+
   <div id="spinner-wrapper">
     <div class="lds-ring">
       <div></div>
