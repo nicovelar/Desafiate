@@ -40,6 +40,22 @@ var getJSONData = function(url){
     });
 }
 
+
+var cambiarpagina = new Audio("sounds/sounds_default_tabSwitch.wav")
+
+$(".pagina").mouseenter(function() {
+  cambiarpagina.load();
+  cambiarpagina.play();
+});
+
+var audio2 = new Audio('https://s3-us-west-2.amazonaws.com/s.cdpn.io/242518/clickUp.mp3')
+
+$(".click").mousedown(function() {
+  audio2.load();
+  audio2.play();
+});
+
+
 function signOut() {
   var auth2 = gapi.auth2.getAuthInstance();
   auth2.signOut().then(function () {
@@ -59,11 +75,11 @@ function mostrarUsuario() {
 
   <div class="dropdown">
   <img style="position:relative; height:45px; class="py-2 d-none d-md-inline-block" src="${usuario.imagen}">
-  <button class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown">${usuario.nombre}
+  <button class="btn btn-secondary dropdown-toggle pagina click" type="button" data-toggle="dropdown">${usuario.nombre}
   <span class="caret"></span></button>
   <ul class="dropdown-menu">
     <li><a style="margin-left: 25px;" href="my-profile.html">Mi perfil</a></li>
-    <li><button class="py-2 d-none d-md-inline-block btn btn-outline-danger" onclick="signOut();">Desconectar</button>
+    <li><button class="py-2 d-none d-md-inline-block btn btn-outline-danger pagina click" onclick="signOut();">Desconectar</button>
   </ul>
 </div>
 
@@ -73,11 +89,11 @@ if (usuario.imagen === undefined) {
   document.getElementById("user").innerHTML = `
   
 <div class="dropdown">
-  <button class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown">${usuario.nombre}
+  <button class="btn btn-secondary dropdown-toggle pagina click" type="button" data-toggle="dropdown">${usuario.nombre}
   <span class="caret"></span></button>
   <ul class="dropdown-menu">
     <li><a style="margin-left: 25px;" href="my-profile.html">Mi perfil</a></li>
-    <li><button class="py-2 d-none d-md-inline-block btn btn-outline-danger" onclick="signOut();">Desconectar</button>
+    <li><button class="py-2 d-none d-md-inline-block btn btn-outline-danger pagina click" onclick="signOut();">Desconectar</button>
   </ul>
 </div>
 `

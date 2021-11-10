@@ -20,7 +20,6 @@ let productsObject = {}
 let sumaTotal = 0
 
 
-
 function showProductsList(array){
     showSpinner();
     let htmlContentToAppend = "";
@@ -141,9 +140,12 @@ function totalAPagar() {
 
 function compraRealizada() {
     let htmlContentToAppend = "";
+    var happypop = new Audio("sounds/happy-pop.mp3")
+    happypop.load();
+  happypop.play();
 
 htmlContentToAppend = `  <div class="success-animation"> 
-<svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52"><circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none" /><path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8" /></svg>
+<svg class="checkmark happypop" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52"><circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none" /><path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8" /></svg>
 
 </div> <meta http-equiv="Refresh" content="2"; />
 
@@ -152,6 +154,11 @@ document.getElementById("exampleModal").innerHTML = htmlContentToAppend;
 
 
 }
+
+
+
+
+
 
 function eliminar() {
     
